@@ -47,7 +47,7 @@ flowchart LR
 
 ## Instalar
 
-1. Descarrega o repositório para uma pasta fixa, por exemplo `C:\kcu-automaticos`.
+1. Descarrega (ou clona com `git clone`) o repositório para uma pasta fixa, por exemplo `C:\kcu-automaticos`.
 2. Abre o **PowerShell como administrador** e corre o `instalar.ps1` de cada pasta que queres:
 
    ```powershell
