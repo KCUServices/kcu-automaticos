@@ -1,0 +1,19 @@
+[
+  {
+    "nome": "comfyui",
+    "url": "http://127.0.0.1:8188/system_stats",
+    "tarefa": "ComfyUI",
+    "matar": "comfyui.*main\.py"
+  },
+  {
+    "nome": "ollama",
+    "url": "http://127.0.0.1:11434/api/version",
+    "programa": "C:\Users\<tu>\AppData\Local\Programs\Ollama\ollama app.exe",
+    "matar": "ollama"
+  },
+  {
+    "nome": "syncthing",
+    "processo": "syncthing",
+    "tarefa": "Start Syncthing at logon"
+  }
+]

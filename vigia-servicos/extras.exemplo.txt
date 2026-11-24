@@ -1,0 +1,3 @@
+# Um script por linha, com caminho relativo a esta pasta. Corre a cada volta do vigia (de 5 em 5 min).
+# Copia para extras.txt para ativar.
+..\libertar-gpu\libertar_gpu_comfyui.ps1

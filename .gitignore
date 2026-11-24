@@ -1,0 +1,9 @@
+# ficheiros que cada um cria no seu PC
+*.log
+*.estado.json
+vigia_batimento.txt
+manutencao.aviso-*.txt
+nao_desligar.txt
+nao_libertar_gpu.txt
+vigia-servicos/servicos.json
+vigia-servicos/extras.txt
