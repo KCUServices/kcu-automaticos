@@ -1,0 +1,21 @@
+[
+  {
+    "nome": "Ollama",
+    "porta": 11434,
+    "programa": "C:\\Users\\<tu>\\AppData\\Local\\Programs\\Ollama\\ollama app.exe"
+  },
+  {
+    "nome": "ComfyUI",
+    "porta": 8188,
+    "programa": "C:\\ComfyUI\\python_embeded\\python.exe",
+    "argumentos": "-s ComfyUI\\main.py --listen 127.0.0.1",
+    "pasta": "C:\\ComfyUI",
+    "escondido": true,
+    "esperaSeg": 5
+  },
+  {
+    "nome": "Obsidian",
+    "processo": "Obsidian",
+    "programa": "C:\\Users\\<tu>\\AppData\\Local\\Programs\\Obsidian\\Obsidian.exe"
+  }
+]

@@ -15,6 +15,7 @@ flowchart LR
     vbs --> noite["🌙 Desligar noite<br/>01:00"]
     vbs --> manut["🧽 Manutenção<br/>diária e semanal"]
     vbs --> vigia["👀 Vigia de serviços<br/>5 em 5 min"]
+    vbs --> arr["🚀 Arranque<br/>ao entrar no Windows"]
     vigia --> gpu["🎮 Libertar GPU<br/>ComfyUI parado"]
     vigia -- "caiu?" --> rearr["🔁 Volta a arrancar"]
     noite -- "ocupado?" --> espera["⏳ Volta a ver<br/>daqui a 15 min"]
@@ -31,6 +32,7 @@ flowchart LR
 | [`manutencao`](manutencao) | Limpa temporários, relatórios de erro, a cache de atualizações e o Docker. Vigia a saúde dos discos e o espaço livre. | diária às 13:30, semanal ao domingo às 14:00 |
 | [`vigia-servicos`](vigia-servicos) | Vê se os teus serviços respondem. Se um falha duas vezes seguidas, volta a arrancá-lo. Avisa se o PC se desligou de repente (falta de luz). | de 5 em 5 min |
 | [`libertar-gpu`](libertar-gpu) | Quando o ComfyUI está parado com modelos na placa, descarrega-os para os jogos terem a GPU toda. | com o vigia |
+| [`arranque`](arranque) | Ao entrares no Windows, abre os programas e serviços da tua lista, **só** se ainda não estiverem abertos. Vê pela porta ou pelo processo. | ao entrar |
 | [`acordar-wol`](acordar-wol) | Liga outro PC da casa por Wake-on-LAN e espera que ele responda. | à mão |
 | [`comum`](comum) | Peças partilhadas: correr escondido, criar tarefas, avisar no Discord. | — |
 
