@@ -1,0 +1,24 @@
+{
+  "titulo": "Estado da casa",
+  "porta": 8765,
+  "maquinas": "../estado-maquinas/estado.json",
+  "verificacoes": [
+    {
+      "nome": "Servidor web local",
+      "url": "http://127.0.0.1:8080/"
+    },
+    {
+      "nome": "ComfyUI",
+      "porta": 8188
+    },
+    {
+      "nome": "NAS (painel)",
+      "url": "http://nas.local:5000/"
+    },
+    {
+      "nome": "Servidor Linux (SSH)",
+      "host": "servidor.local",
+      "porta": 22
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 # Acorda outro PC da rede de casa por Wake-on-LAN e espera que ele responda.
-#   powershell -ExecutionPolicy Bypass -File acordar.ps1 -Mac AA:BB:CC:DD:EE:FF -Ip 192.168.1.50
+#   powershell -ExecutionPolicy Bypass -File acordar.ps1 -Mac AA:BB:CC:DD:EE:FF -Ip 192.0.2.50
 # Requisitos no PC a acordar: Wake-on-LAN ligado na BIOS e na placa de rede (Gestor de Dispositivos >
 # placa de rede > Gestao de energia > "Permitir que este dispositivo acorde o computador" + "Wake on Magic Packet").
 # So funciona a partir de um aparelho ligado a mesma rede (o pacote e de difusao).

@@ -8,3 +8,9 @@ nao_libertar_gpu.txt
 vigia-servicos/servicos.json
 vigia-servicos/extras.txt
 arranque/arranque.json
+estado-maquinas/maquinas.json
+estado-maquinas/estado.json
+estado-maquinas/estado.html
+estado-pagina/verificacoes.json
+otimizar-windows/otimizar_windows.antes*.json
+__pycache__/

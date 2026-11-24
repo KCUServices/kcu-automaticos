@@ -4,7 +4,7 @@
 
 > São os mesmos scripts que usamos todos os dias, só que limpos de tudo o que é nosso. Pega, lê, adapta ao teu.
 >
-> *Windows automation scripts we run every day: smart RAM cleaner, safe nightly shutdown, maintenance, self-healing service watchdog, GPU release for ComfyUI, Wake-on-LAN. (In Portuguese.)*
+> *Windows automation scripts we run every day: smart RAM cleaner, safe nightly shutdown, maintenance, self-healing service watchdog, GPU release for ComfyUI, Wake-on-LAN, machine status and pending updates, a local status page, and reversible Windows tweaks. (In Portuguese.)*
 
 ## Como funciona
 
@@ -16,10 +16,14 @@ flowchart LR
     vbs --> manut["🧽 Manutenção<br/>diária e semanal"]
     vbs --> vigia["👀 Vigia de serviços<br/>5 em 5 min"]
     vbs --> arr["🚀 Arranque<br/>ao entrar no Windows"]
+    vbs --> maq["🖥️ Estado das máquinas<br/>10 em 10 min"]
+    vbs --> pag["📊 Página de estado<br/>ao entrar no Windows"]
     vigia --> gpu["🎮 Libertar GPU<br/>ComfyUI parado"]
     vigia -- "caiu?" --> rearr["🔁 Volta a arrancar"]
     noite -- "ocupado?" --> espera["⏳ Volta a ver<br/>daqui a 15 min"]
-    noite & manut & vigia -. "só quando importa" .-> discord["💬 Discord"]
+    maq -- "estado.json" --> pag
+    otim["🛠️ Otimizar Windows<br/>à mão, uma vez"] -. "-Desfazer" .-> otim
+    noite & manut & vigia & maq -. "só quando importa" .-> discord["💬 Discord"]
 ```
 
 ## O que está aqui
@@ -34,6 +38,9 @@ flowchart LR
 | [`libertar-gpu`](libertar-gpu) | Quando o ComfyUI está parado com modelos na placa, descarrega-os para os jogos terem a GPU toda. | com o vigia |
 | [`arranque`](arranque) | Ao entrares no Windows, abre os programas e serviços da tua lista, **só** se ainda não estiverem abertos. Vê pela porta ou pelo processo. | ao entrar |
 | [`acordar-wol`](acordar-wol) | Liga outro PC da casa por Wake-on-LAN e espera que ele responda. | à mão |
+| [`estado-maquinas`](estado-maquinas) | Vê se as máquinas da tua lista estão ligadas (ping ou porta) e se têm atualizações pendentes: este PC (Windows Update), Linux com apt, Mac, ou um comando teu por SSH. Escreve `estado.json` e `estado.html` e avisa quando uma cai. | de 10 em 10 min (atualizações de 6 em 6 h) |
+| [`estado-pagina`](estado-pagina) | Uma página web pequena, **só neste PC** (127.0.0.1), que mostra se os teus serviços respondem e a tabela do `estado-maquinas`. Python, sem instalar nada além do Python. | ao entrar |
+| [`otimizar-windows`](otimizar-windows) | Tira telemetria, publicidade e sugestões, põe a limpeza automática semanal e (se pedires) afinações para jogos. Só definições documentadas, todas com `-Desfazer`. Lista completa no [README da pasta](otimizar-windows/README.md). | à mão, uma vez |
 | [`comum`](comum) | Peças partilhadas: correr escondido, criar tarefas, avisar no Discord. | — |
 
 ## Instalar
@@ -54,6 +61,8 @@ flowchart LR
    powershell -File limpar-ram\limpar_ram.ps1 -Ensaio
    powershell -File desligar-noite\desligar_noite.ps1 -Ensaio
    powershell -File manutencao\manutencao.ps1 -Semanal -Ensaio
+   powershell -File estado-maquinas\estado_maquinas.ps1 -Ensaio -Completo
+   powershell -File otimizar-windows\otimizar_windows.ps1 -Ensaio
    ```
 
 4. Para desinstalar, corre o mesmo `instalar.ps1` com `-Remover`.
@@ -76,6 +85,22 @@ Copia `servicos.exemplo.json` para `servicos.json` e põe lá os teus serviços.
 - uma forma de ver se está vivo: `url` (responde?) ou `processo` (está aberto?);
 - uma forma de o voltar a arrancar: `tarefa` (uma tarefa agendada) ou `programa` (um .exe);
 - opcionalmente, `matar`: um texto do comando dos processos a fechar antes de arrancar de novo.
+
+### Estado das máquinas
+
+Copia `maquinas.exemplo.json` para `maquinas.json`. Cada máquina tem um `nome` e:
+- `host` (responde ao ping?) e/ou `porta` (a porta TCP aceita ligação? conta mais do que o ping, porque há redes que o bloqueiam). Sem nenhum dos dois, é este PC;
+- opcionalmente `atualizacoes`: `windows` (este PC), `apt` (Debian, Ubuntu, Proxmox), `macos`, ou `comando` com um `comando` teu que escreve uma linha por atualização pendente. Os três últimos precisam de `ssh` (`utilizador@host`) **com chave, sem password**: testa antes com `ssh utilizador@host echo ok`. Não uses aspas duplas no `comando` (o PowerShell 5.1 estraga-as).
+
+Nada é instalado: só se procura o que está pendente. O resultado fica em `estado.json` e `estado.html`, ao lado do script.
+
+### Página de estado
+
+Precisa do Python 3.8 ou mais recente. Copia `verificacoes.exemplo.json` para `verificacoes.json` e põe lá os teus serviços (`url` ou `porta`, e `host` se não for este PC). Se `maquinas` apontar para o `estado.json` do `estado-maquinas`, a página mostra também essa tabela. Abre `http://127.0.0.1:8765`. A página escuta só neste PC; não fica visível na rede.
+
+```powershell
+powershell -File estado-pagina\arrancar_pagina.ps1 -Ensaio   # faz as verificações uma vez e mostra-as
+```
 
 ## Cuidados
 

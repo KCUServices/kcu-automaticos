@@ -1,0 +1,31 @@
+[
+  {
+    "nome": "Este PC",
+    "atualizacoes": "windows"
+  },
+  {
+    "nome": "Servidor Linux",
+    "host": "servidor.local",
+    "porta": 22,
+    "ssh": "root@servidor.local",
+    "atualizacoes": "apt"
+  },
+  {
+    "nome": "Mac",
+    "host": "mac.local",
+    "ssh": "utilizador@mac.local",
+    "atualizacoes": "macos"
+  },
+  {
+    "nome": "NAS",
+    "host": "nas.local",
+    "porta": 5000
+  },
+  {
+    "nome": "Servidor Fedora",
+    "host": "fedora.local",
+    "ssh": "utilizador@fedora.local",
+    "atualizacoes": "comando",
+    "comando": "dnf -q list --upgrades 2>/dev/null | tail -n +2"
+  }
+]
