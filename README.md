@@ -1,5 +1,7 @@
 # KCU Automáticos ⚙️
 
+[![Verificar](https://github.com/KCUServices/kcu-automaticos/actions/workflows/verificar.yml/badge.svg)](https://github.com/KCUServices/kcu-automaticos/actions/workflows/verificar.yml)
+
 **Os scripts que mantêm os nossos PCs Windows a funcionar sozinhos.** Limpam a RAM quando faz falta, desligam o PC de madrugada sem cortar o trabalho a ninguém, fazem manutenção, voltam a arrancar serviços que caem e avisam no Discord quando algo corre mal.
 
 > São os mesmos scripts que usamos todos os dias, só que limpos de tudo o que é nosso. Pega, lê, adapta ao teu.
