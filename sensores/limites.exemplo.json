@@ -1,0 +1,11 @@
+{
+  "equipamento": "Este PC",
+  "lhm": "lhm\\LibreHardwareMonitorLib.dll",
+  "smartctl": "C:\\Program Files\\smartmontools\\bin\\smartctl.exe",
+  "cpu": { "aviso": 80, "alerta": 90 },
+  "gpu": { "aviso": 77, "alerta": 87 },
+  "gpu_hotspot": { "aviso": 95, "alerta": 105 },
+  "nvme": { "aviso": 65, "alerta": 75 },
+  "hdd": { "aviso": 50, "alerta": 55 },
+  "nvme_gasto_pct": 90
+}

@@ -12,5 +12,11 @@ estado-maquinas/maquinas.json
 estado-maquinas/estado.json
 estado-maquinas/estado.html
 estado-pagina/verificacoes.json
+sensores/limites.json
+sensores/sensores.json
+sensores/sensores.historico.json
+sensores/hc.url
+sensores/lhm/
+*.tmp
 otimizar-windows/otimizar_windows.antes*.json
 __pycache__/

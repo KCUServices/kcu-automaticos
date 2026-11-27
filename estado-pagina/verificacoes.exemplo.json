@@ -2,6 +2,8 @@
   "titulo": "Estado da casa",
   "porta": 8765,
   "maquinas": "../estado-maquinas/estado.json",
+  "vigia": "../vigia-servicos/vigia_servicos.estado.json",
+  "sensores": "../sensores/sensores.json",
   "verificacoes": [
     {
       "nome": "Servidor web local",
@@ -9,7 +11,8 @@
     },
     {
       "nome": "ComfyUI",
-      "porta": 8188
+      "porta": 8188,
+      "vigia": "comfyui"
     },
     {
       "nome": "NAS (painel)",
