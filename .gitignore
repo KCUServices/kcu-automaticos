@@ -20,3 +20,5 @@ sensores/lhm/
 *.tmp
 otimizar-windows/otimizar_windows.antes*.json
 __pycache__/
+medir-fps/capturas/
+medir-fps/PresentMon*.exe

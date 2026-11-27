@@ -50,6 +50,7 @@ flowchart LR
 | [`acordar-wol`](acordar-wol) | Liga outro PC da casa por Wake-on-LAN e espera que ele responda. | à mão |
 | [`estado-maquinas`](estado-maquinas) | Vê se as máquinas da tua lista estão ligadas (ping ou porta) e se têm atualizações pendentes: este PC (Windows Update), Linux com apt, Mac, ou um comando teu por SSH. Escreve `estado.json` e `estado.html` e avisa quando uma cai. | de 10 em 10 min (atualizações de 6 em 6 h) |
 | [`estado-pagina`](estado-pagina) | Um "centro de operações" pequeno, **só neste PC** (127.0.0.1): cada serviço e cada máquina com um de 7 estados (Saudável, Aviso, Degradado, A recuperar, Desatualizado, Falhou, Desligado), a partir das tuas verificações, do `estado-maquinas`, do `vigia-servicos` e dos `sensores`. Python, sem instalar nada além do Python. | ao entrar |
+| [`medir-fps`](medir-fps) | Mede os FPS de um jogo com o PresentMon oficial da Intel: FPS médio, 1 % baixo, frametimes e quem limita (CPU ou GPU). Grava um resumo em JSON para comparar antes e depois. | à mão |
 | [`otimizar-windows`](otimizar-windows) | Tira telemetria, publicidade e sugestões, põe a limpeza automática semanal e (se pedires) afinações para jogos. Só definições documentadas, todas com `-Desfazer`. Lista completa no [README da pasta](otimizar-windows/README.md). | à mão, uma vez |
 | [`comum`](comum) | Peças partilhadas: correr escondido, criar tarefas, avisar no Discord. | — |
 

@@ -4,6 +4,7 @@ Cada versão fica ligada ao episódio em que foi mostrada. As ideias da comunida
 
 ## [Por lançar]: 2026-11-27
 
+- **Medir FPS** (novo): mede um jogo com o PresentMon oficial da Intel durante N segundos, deita fora os primeiros, e dá o FPS médio, o 1 % baixo, os frametimes e quem limita (CPU ou GPU). Grava o CSV e um resumo `ultima-medicao.json`, e volta a analisar capturas antigas com `-Csv`.
 - **Sensores** (novo): temperaturas do CPU e da GPU com o LibreHardwareMonitor e saúde dos discos com o `smartctl`, limites num `limites.json`, avisos só quando um alerta abre ou fecha, e sinal de vida opcional para o Healthchecks.
 - **Alertas** (novo): o mesmo formato em Python e PowerShell, com catálogo. Cada aviso leva equipamento, serviço, hora, problema, evidência, impacto, histórico de 7 dias, causa provável, solução e estado, com nível `CRITICAL`, `HIGH`, `MEDIUM` ou `LOW`.
 - **Página de estado**: visual novo "centro de operações" e 7 estados por serviço e por máquina (Saudável, Aviso, Degradado, A recuperar, Desatualizado, Falhou, Desligado), com as regras em `estados.py` e um autoteste. Lê também o vigia de serviços e os sensores. O `/estado.json` mantém os campos de antes e ganha `estados`. Recusa pedidos com outro nome no `Host` (proteção contra *DNS rebinding*).
